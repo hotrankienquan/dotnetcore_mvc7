@@ -1,4 +1,6 @@
 using dotnet_mvc.Models.Domain;
+using dotnet_mvc.Repositories.Abstract;
+using dotnet_mvc.Repositories.Implementation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IBookService, BookService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

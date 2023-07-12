@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<dotnet_mvc.Models.Domain.Book>
+@{
+}
+
+
+<div class="mt-2">
+    <h3>List Book</h3>
+    <a href="/book/add">add new book</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.GenreId</td>
+                    <td>
+                        <a class="btn btn-secondary" href="/book/update?id=@book.Id">edit</a>
+                        <a class="btn btn-danger" href="/book/delete?id=@book.Id">delete</a>
+                    </td>
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+

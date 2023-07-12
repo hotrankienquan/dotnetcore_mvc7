@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model dotnet_mvc.Models.Domain.Genre
+
+<div style="width:50%">
+
+    <form class="mt-2" asp-action="Add" method="post">
+        <h2>Add genre</h2>
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+      
+        @if (TempData["message"] != null)
+        {
+            <div class="mb-3 text-success">
+                @TempData["message"]
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/Genre/GetAll" class="btn btn-outline-info">All genre</a>
+    </form>
+</div>

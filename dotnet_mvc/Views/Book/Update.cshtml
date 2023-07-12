@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model dotnet_mvc.Models.Domain.Book
+
+<div style="width:50%">
+
+    <form class="mt-2" asp-action="Update" method="post">
+        <h2>Update book</h2>
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="Title" class="form-label">Title</label>
+            <input type="text" asp-for="Title" class="form-control">
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <div class="form-group mb-2">
+            <label asp-for="GenreId">Genre *</label>
+            <select asp-for="GenreId" asp-items="Model.GenreList" class="form-control">
+                <option value="">--select--</option>
+            </select>
+            <span asp-validation-for="GenreId" class="text-danger"></span>
+        </div>
+        @if (TempData["message"] != null)
+        {
+            <div class="mb-3 text-success">
+                @TempData["message"]
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/book" class="btn btn-outline-info">index book</a>
+    </form>
+</div>

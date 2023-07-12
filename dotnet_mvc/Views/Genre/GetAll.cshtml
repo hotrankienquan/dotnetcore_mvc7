@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<dotnet_mvc.Models.Domain.Genre>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var genre in Model)
+        {
+            <tr>
+                <td>@genre.Name</td>
+                <td>
+                    <a href="/Genre/Update?id=@genre.Id">edit</a>
+                    <a href="/Genre/Delete?id=@genre.Id">delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
