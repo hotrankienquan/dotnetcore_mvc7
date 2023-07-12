@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model dotnet_mvc.Models.Domain.Person
+@{
+}
+<div style="width:50%">
+
+    <form class="mt-2" asp-action="EditPerson">
+        <h2>edit person</h2>
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" asp-for="Email" class="form-control">
+            <span class="text-warning" asp-validation-for="Email"></span>
+        </div>
+        @if (TempData["message"] != null)
+        {
+            <div class="mb-3 text-success">
+                @TempData["message"]
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/Person/DisplayPersons" class="btn btn-outline-info">All person</a>
+    </form>
+</div>

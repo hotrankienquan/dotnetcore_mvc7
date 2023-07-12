@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<dotnet_mvc.Models.Domain.Person>
+@{
+}
+
+
+<div class="mt-2">
+       <h3>List person</h3>
+       <a href="/person/addperson">add new person</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.Email</td>
+                    <td>
+                        <a class="btn btn-secondary" href="/person/editperson?id=@person.Id">edit</a>
+                        <a class="btn btn-danger" href="/person/deleteperson?id=@person.Id">delete</a>
+                    </td>
+                </tr>
+
+            }
+            
+           
+        </tbody>
+    </table>
+   
+</div>
+
